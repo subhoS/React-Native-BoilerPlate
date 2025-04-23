@@ -1,27 +1,38 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
+
+export const AUTH_KEY = "auth_token";
 
 export const requireAuth = async () => {
   try {
-    const token = await AsyncStorage.getItem('userToken');
-    return !!token;
+    const token = await AsyncStorage.getItem(AUTH_KEY);
+    if (!token) {
+      router.replace("/(auth)/login");
+      return false;
+    }
+    return true;
   } catch (error) {
-    console.error('Error checking authentication:', error);
+    console.error("Auth check failed:", error);
+    router.replace("/(auth)/login");
     return false;
   }
 };
 
 export const setAuth = async (token: string) => {
-  try {
-    await AsyncStorage.setItem('userToken', token);
-  } catch (error) {
-    console.error('Error setting authentication:', error);
-  }
+  await AsyncStorage.setItem(AUTH_KEY, token);
 };
 
 export const removeAuth = async () => {
-  try {
-    await AsyncStorage.removeItem('userToken');
-  } catch (error) {
-    console.error('Error removing authentication:', error);
-  }
+  await AsyncStorage.removeItem(AUTH_KEY);
+};
+
+export const getAuth = async () => {
+  return await AsyncStorage.getItem("auth-token");
+};
+
+// Add default export
+export default {
+  setAuth,
+  removeAuth,
+  getAuth,
 };

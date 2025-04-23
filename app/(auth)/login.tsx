@@ -31,7 +31,7 @@ export default function LoginScreen() {
     },
   ];
 
-  const handleScroll = (event) => {
+  const handleScroll = (event: any) => {
     const contentOffset = event.nativeEvent.contentOffset;
     const page = Math.round(contentOffset.x / screenWidth);
     setCurrentPage(page);
