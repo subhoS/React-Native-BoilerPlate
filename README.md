@@ -1,8 +1,17 @@
-# Welcome to your Expo app 👋
+# Example Expo Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native application built with Expo, featuring authentication, tab navigation, and Material Design components.
 
-## Get started
+## 🚀 Features
+
+- Authentication flow with login screen
+- Tab-based navigation
+- Material Design using React Native Paper
+- TypeScript support
+- Expo Router for navigation
+- Theme support with dark/light mode
+
+## 📁 Project Structure
 
 1. Install dependencies
 
