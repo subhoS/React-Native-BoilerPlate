@@ -57,3 +57,68 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## 📝 Project Stracture Notes
+
+### Authentication (auth)/
+
+- Purpose : Handles user authentication and authorization
+- Navigation : Stack-based navigation for login flow
+- Access Control : Guards protected routes
+- Key Features :
+  - Login screen
+  - Authentication state management
+  - Token handling
+  - Protected route redirection
+
+### Pages (pages)/
+
+- Purpose : Contains standalone screens accessible via drawer menu
+- Navigation : Independent stack navigation
+- Access Pattern : Modal-style presentation
+- Key Features :
+  - Settings screen
+  - Support screen
+  - Custom back navigation
+  - Independent of tab navigation
+  - Accessible from any tab via drawer
+
+### Tabs (tabs)/
+
+- Purpose : Main application screens with persistent bottom navigation
+- Navigation : Tab-based navigation with bottom bar
+- Access Pattern : Direct switching between tabs
+- Key Features :
+  - Home screen
+  - Favorites
+  - Albums
+  - Recents
+  - Notifications
+  - Persistent navigation state
+  - Bottom tab bar with icons
+
+### Key Differences:
+
+1. Navigation Pattern :
+
+   - Auth: Linear stack navigation for authentication flow
+   - Pages: Modal stack navigation for settings/support
+   - Tabs: Bottom tab bar for main app sections
+
+2. Access Method :
+
+   - Auth: Initial app entry point and logout
+   - Pages: Through drawer menu from any screen
+   - Tabs: Direct access via bottom tab bar
+
+3. State Persistence :
+
+   - Auth: Temporary until authenticated
+   - Pages: Reset on exit
+   - Tabs: Maintains state between switches
+
+4. UI Layer :
+   - Auth: Top layer (guards other routes)
+   - Pages: Overlay layer (modal presentation)
+   - Tabs: Base layer (main app interface)
+     This structure provides a clear separation of concerns and intuitive navigation patterns for different types of content and functionality in your application.
